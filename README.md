@@ -52,7 +52,7 @@ Step 3: Run Spark Streaming Tasks
 Task 1: Streaming Ingestion and Parsing  
   - Command:
     ```bash
-    spark-submit task1_streaming_ingestion.py
+    spark-submit task1.py
     ```
   - Reads and parses live data stream from the socket.  
   - Prints structured results to the console.
@@ -60,7 +60,7 @@ Task 1: Streaming Ingestion and Parsing
 Task 2: Real-Time Driver Aggregations  
   - Command:
     ```bash
-    spark-submit task2_driver_aggregations.py
+    spark-submit task2.py
     ```
   - Groups data by `driver_id` and computes:
     • Total fare per driver (`SUM(fare_amount)`)  
@@ -73,7 +73,7 @@ Task 2: Real-Time Driver Aggregations
 Task 3: Windowed Time-Based Fare Analysis  
   - Command:
     ```bash
-    spark-submit task3_windowed_analytics.py
+    spark-submit task3.py
     ```
   - Converts timestamps to Spark `TimestampType`.  
   - Performs aggregations over **5-minute windows**, sliding every **1 minute**.  
