@@ -32,57 +32,72 @@ Each generated record is a JSON string representing one trip:
 
 ## ▶️ How to Run
 
-Step 1: Install Dependencies
-  - pip install pyspark faker
+Step 1: Install Dependencies  
+  - Run the following command:
+    ```bash
+    pip install pyspark faker
+    ```
 
-Step 2: Start the Data Generator
-  - Run in one terminal:
-      python data_generator.py
-  - Streams data continuously to localhost:9999
+Step 2: Start the Data Generator  
+  - In one terminal, execute:
+    ```bash
+    python data_generator.py
+    ```
+  - This will stream data continuously to `localhost:9999`.
 
-Step 3: Run Spark Streaming Tasks
-  - Ensure Apache Spark is installed and spark-submit is available.
+Step 3: Run Spark Streaming Tasks  
+  - Ensure Apache Spark is installed and `spark-submit` is available.
 
-Task 1: Streaming Ingestion and Parsing
+Task 1: Streaming Ingestion and Parsing  
   - Command:
-      spark-submit task1_streaming_ingestion.py
-  - Reads and parses live data stream from the socket.
+    ```bash
+    spark-submit task1_streaming_ingestion.py
+    ```
+  - Reads and parses live data stream from the socket.  
   - Prints structured results to the console.
 
-Task 2: Real-Time Driver Aggregations
+Task 2: Real-Time Driver Aggregations  
   - Command:
-      spark-submit task2_driver_aggregations.py
-  - Groups data by driver_id and computes:
-      • Total fare per driver (SUM(fare_amount))
-      • Average distance per driver (AVG(distance_km))
+    ```bash
+    spark-submit task2_driver_aggregations.py
+    ```
+  - Groups data by `driver_id` and computes:
+    • Total fare per driver (`SUM(fare_amount)`)  
+    • Average distance per driver (`AVG(distance_km)`)
   - Writes results to:
-      output/driver_aggregations/
+    ```
+    output/driver_aggregations/
+    ```
 
-Task 3: Windowed Time-Based Fare Analysis
+Task 3: Windowed Time-Based Fare Analysis  
   - Command:
-      spark-submit task3_windowed_analytics.py
-  - Converts timestamps to Spark TimestampType.
-  - Performs aggregations over 5-minute windows sliding every 1 minute.
+    ```bash
+    spark-submit task3_windowed_analytics.py
+    ```
+  - Converts timestamps to Spark `TimestampType`.  
+  - Performs aggregations over **5-minute windows**, sliding every **1 minute**.  
   - Writes results to:
-      output/windowed_analytics/
+    ```
+    output/windowed_analytics/
+    ```
 
 ---
 
 ## 📝 Tasks Overview
 
-Task 1: Ingestion and Parsing
-  - Reads streaming JSON data from a socket.
-  - Parses records into structured Spark DataFrame columns.
+Task 1: Ingestion and Parsing  
+  - Reads streaming JSON data from a socket.  
+  - Parses records into structured Spark DataFrame columns.  
   - Outputs results to the console for validation.
 
-Task 2: Real-Time Aggregations
-  - Groups data by driver_id.
-  - Computes total fare and average distance per driver.
+Task 2: Real-Time Aggregations  
+  - Groups data by `driver_id`.  
+  - Computes total fare and average distance per driver.  
   - Writes each micro-batch result to CSV.
 
-Task 3: Time-Windowed Analysis
-  - Converts timestamp strings to TimestampType.
-  - Aggregates fare_amount over 5-minute sliding windows.
+Task 3: Time-Windowed Analysis  
+  - Converts timestamp strings to `TimestampType`.  
+  - Aggregates `fare_amount` over 5-minute sliding windows.  
   - Writes results to CSV files.
 
 ---
@@ -91,27 +106,29 @@ Task 3: Time-Windowed Analysis
 
 "[2025-04-01 17:40:00,2025-04-01 17:45:00]", 210.0
 
-Explanation:
-  - The first column represents the time window range.
+Explanation:  
+  - The first column represents the time window range.  
   - The second column is the total fare within that window.
 
 ---
 
 ## ✅ Requirements
-  - Python 3.8+
-  - Apache Spark 3.x
-  - Dependencies:
-      pip install pyspark faker
+  - Python 3.8+  
+  - Apache Spark 3.x  
+  - Install dependencies:
+    ```bash
+    pip install pyspark faker
+    ```
 
 ---
 
 ## 📌 Notes
-  - Run the data generator and each Spark task in separate terminals.
-  - Ensure output/ and checkpoints/ directories are writable.
-  - Socket source is for local testing only (not production).
+  - Run the data generator and each Spark task in **separate terminals**.  
+  - Ensure `output/` and `checkpoints/` directories are writable.  
+  - The socket source is for **local testing only** (not production).
 
 ---
 
 ## 📚 References
-  - Apache Spark Structured Streaming Documentation:
+  - Apache Spark Structured Streaming Documentation:  
     https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
