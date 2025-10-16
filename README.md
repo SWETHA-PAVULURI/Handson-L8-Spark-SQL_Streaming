@@ -67,7 +67,7 @@ Task 2: Real-Time Driver Aggregations
     • Average distance per driver (`AVG(distance_km)`)
   - Writes results to:
     ```
-    output/driver_aggregations/
+    output/task2/
     ```
 
 Task 3: Windowed Time-Based Fare Analysis  
@@ -79,7 +79,7 @@ Task 3: Windowed Time-Based Fare Analysis
   - Performs aggregations over **5-minute windows**, sliding every **1 minute**.  
   - Writes results to:
     ```
-    output/windowed_analytics/
+    output/task3/
     ```
 
 ---
