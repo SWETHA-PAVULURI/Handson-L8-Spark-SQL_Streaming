@@ -9,9 +9,9 @@ This project implements a real-time analytics pipeline for a ride-sharing platfo
 
 ride-sharing-analytics/
   ├── data_generator.py              # Python script to simulate live ride-sharing data
-  ├── task1_streaming_ingestion.py   # Task 1: Ingest and parse streaming data
-  ├── task2_driver_aggregations.py   # Task 2: Real-time driver-level aggregations
-  ├── task3_windowed_analytics.py    # Task 3: Time-windowed fare trend analysis
+  ├── task1.py                       # Task 1: Ingest and parse streaming data
+  ├── task2s.py                      # Task 2: Real-time driver-level aggregations
+  ├── task3.py                       # Task 3: Time-windowed fare trend analysis
   ├── output/                        # Output directory for CSV results
   ├── checkpoints/                   # Checkpoint directory for stateful operations
   └── README.md                      # Project documentation
