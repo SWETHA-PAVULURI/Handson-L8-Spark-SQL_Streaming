@@ -5,6 +5,7 @@ This project implements a real-time analytics pipeline for a ride-sharing platfo
 ---
 
 ## 📁 Project Structure
+```
 
 ride-sharing-analytics/
   ├── data_generator.py              # Python script to simulate live ride-sharing data
@@ -14,7 +15,7 @@ ride-sharing-analytics/
   ├── output/                        # Output directory for CSV results
   ├── checkpoints/                   # Checkpoint directory for stateful operations
   └── README.md                      # Project documentation
-
+```
 ---
 
 ## 🧪 Data Format
